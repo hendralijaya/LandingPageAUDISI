@@ -5,11 +5,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
+        background: '#FDFDFF',
         foreground: 'var(--foreground)',
         red: {
-          200: '#FFDCD8',
-          800: '#9B0606',
+          200: '#FEF9F9',
+          400: '#FFDCD8',
+          800: '#EB8F89',
+          900: '#DC3E42',
+          950: '#9B0606'
         },
       },
     },

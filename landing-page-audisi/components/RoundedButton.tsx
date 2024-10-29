@@ -5,7 +5,7 @@ interface RoundedButtonProps {
   className?: string;
 }
 
-const RoundedButton = ({ children, className = 'bg-red-800 hover:bg-red-500' }: RoundedButtonProps) => {
+const RoundedButton = ({ children, className = 'bg-red-950 hover:bg-red-500' }: RoundedButtonProps) => {
   return <button className={` rounded-full p-3 ${className}`}>{children}</button>;
 };
 

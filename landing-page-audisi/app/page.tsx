@@ -1,3 +1,5 @@
+"use client"; // Mark this component as a client component
+
 import Button from '@/components/Button';
 import { BackgroundMobile, Logo, LatarBelakang, CtaMobile, HeroMobile } from '@/public/img';
 import Image from 'next/image';
@@ -8,39 +10,36 @@ import { Visi } from '@/public/img/visi-misi';
 import HighlightText from '@/components/HighlightText';
 import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabilitas';
 import HighlightIcon from '@/components/HighlightIcon';
+import { PatternMobile } from '@/public/img/pattern';
+
+import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <div>
-      <div className="flex justify-between px-8 py-2">
-        <Image src={Logo} alt="logo" className="w-34 h-10 p-2" />
-        <Button>
-          <div className="flex items-center">
-            <Image src={SettingsAccessibility} alt="settings-accessibility" className="w-5 h-5" />
-            <p>Aksesibilitas</p>
-            <Image src={ChevronDown} alt="chevron-down" className="w-5 h-5" />
-          </div>
-        </Button>
-      </div>
+    <div className=''>
+      <Header />
       {/* Hero Section */}
-      {/* <div className="relative p-4">
-        <Image src={CtaMobile} alt="call-to-action" className="rounded-xl" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 rounded-xl gap-y-4">
-          <h3 className="text-2xl text-black font-semibold text-center px-4">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h3>
-          <p className="text-lg text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>
-          <Button className="bg-red-800 text-white p-4 mt-4">
-            <p>Hubungi via Email</p>
-          </Button>
-        </div>
-      </div> */}
-      <div className="relative p-4">
-        <Image src={BackgroundMobile} alt="background-mobile" className="rounded-xl object-cover w-full h-full" />
-        <div className="absolute bottom-0 flex flex-col justify-center items-center text-white rounded-xl gap-y-4">
-          <h3 className="text-2xl text-black font-semibold text-center px-4">Bersama untuk Mewujudkan Aksesibilitas untuk Semua</h3>
-          <Button className="bg-red-800 text-white p-4">
-            <p>Pelajari lebih lanjut</p>
-          </Button>
-          <Image src={HeroMobile} alt="hero" className="rounded-ee-xl rounded-es-xl object-cover" />
+      <div className="px-4">
+        <div 
+          className="relative overflow-hidden flex flex-col items-center gap-3 rounded-xl"
+          style={{
+            backgroundImage: 'linear-gradient(180deg, #FEF9F9 10%, #DC3E42 100%)', // Adjust the colors and percentages as needed
+          }}
+        >
+          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] bg-cover bg-no-repeat">
+            <div className="px-4 pt-20 flex flex-col items-center gap-4">
+                  <h3 className="text-4xl leading-snug text-black font-semibold text-center px-4">Bersama untuk Mewujudkan <span className='text-red-950 font-extrabold'>Aksesibilitas</span> untuk Semua</h3>
+                  <Button className="bg-red-950 text-white p-4 w-fit font-medium">
+                    <p>Pelajari lebih lanjut</p>
+                  </Button>
+                </div>
+                  
+                  <Image src={HeroMobile} alt="hero" className="rounded-ee-xl rounded-es-xl object-cover" />
+            </div>
+            {/* <div className="absolute flex flex-col justify-center items-center text-white rounded-xl gap-y-4 z-[-1]">
+              <Image src={BackgroundMobile} alt="background-mobile" className="rounded-xl object-cover w-full h-full" />
+            </div> */}
+            
         </div>
       </div>
       {/* Mitra Kerja Sama */}
@@ -53,7 +52,7 @@ export default function Home() {
       {/* About Us */}
       <div className="p-4 space-y-4">
         <h3 className="text-center text-2xl font-semibold">Tentang AUDISI Foundation</h3>
-        <Card>
+        <Card hasImage={false}>
           <div className="space-y-4">
             <RoundedButton>
               <Image src={Campaign} alt="chevron-down" className="w-8 h-8" />
@@ -65,7 +64,7 @@ export default function Home() {
           </div>
         </Card>
 
-        <Card>
+        <Card hasImage={false}>
           <div className="space-y-4">
             <RoundedButton>
               <Image src={Newspaper} alt="chevron-down" className="w-8 h-8" />
@@ -81,7 +80,7 @@ export default function Home() {
       {/* Latar Belakang */}
       <div className="p-4 space-y-4">
         <h3 className="text-center text-2xl font-semibold">Latar Belakang</h3>
-        <Card>
+        <Card hasImage={false}>
           <div className="flex flex-col space-y-6">
             <p className="text-lg">
               Konvensi Hak-Hak Penyandang Disabilitas telah diratifikasi oleh Indonesia pada tahun 2011. <span className="font-semibold">Pada tahun 2016</span>, Indonesia berhasil memiliki peraturan daerah sendiri yang{' '}
@@ -99,7 +98,7 @@ export default function Home() {
       <div className="p-4 flex flex-col gap-y-4">
         <h3 className="text-center text-2xl font-semibold">Visi dan Misi</h3>
 
-        <Card className="p-0 flex flex-col">
+        <Card hasImage={true} className="p-0 flex flex-col">
           <Image src={Visi} alt="Visi" className="rounded-xl" />
           <div className="flex flex-col px-4 gap-y-2">
             <HighlightText text="Visi" className="-mt-8" />
@@ -107,25 +106,25 @@ export default function Home() {
           </div>
         </Card>
 
-        <Card className="p-4 py-8 flex flex-col gap-y-2">
+        <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2">
           <HighlightText text="Misi 1" className="" />
           <h4 className="text-left text-2xl font-semibold">Kajian Kebijakan dan Inklusi Sosial Terbaru</h4>
           <p className="text-lg">Melakukan kajian tentang kebijakan dan (inklusi) sosial terkini sebagai landasan untuk mewujudkan Masyarakat Inklusi Disabilitas.</p>
         </Card>
 
-        <Card className="p-4 py-8 flex flex-col gap-y-2">
+        <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2">
           <HighlightText text="Misi 2" className="" />
           <h4 className="text-left text-2xl font-semibold">Advokasi Hak Penyandang Disabilitas</h4>
           <p className="text-lg">Melakukan advokasi untuk Penghormatan, Perlindungan, dan Pemenuhan Hak penyandang disabilitas di segala bidang kehidupan.</p>
         </Card>
 
-        <Card className="p-4 py-8 flex flex-col gap-y-2">
+        <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2">
           <HighlightText text="Misi 3" className="" />
           <h4 className="text-left text-2xl font-semibold">Pemberdayaan Penyandang Disabilitas</h4>
           <p className="text-lg">Melakukan pemberdayaan penyandang disabilitas sebagai pelaku pembangunan yang mandiri, produktif, dan berintegritas.</p>
         </Card>
 
-        <Card className="p-4 py-8 flex flex-col gap-y-2">
+        <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2">
           <HighlightText text="Misi 4" className="" />
           <h4 className="text-left text-2xl font-semibold">Pengembangan Jaringan dan Kerja Sama</h4>
           <p className="text-lg">Mengembangkan jaringan dan kerjasama dengan berbagai pihak untuk mewujudkan masyarakat inklusif bagi penyandang disabilitas.</p>
@@ -140,7 +139,7 @@ export default function Home() {
           Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat.
         </p>
 
-        <Card className="p-0 flex flex-col">
+        <Card hasImage={true} className="p-0 flex flex-col">
           <Image src={Fisik} alt="fisik" className="rounded-xl w-full" />
           <div className="flex flex-col px-4 gap-y-2">
             <HighlightIcon image={Disabled} alt="disabled" />
@@ -149,7 +148,7 @@ export default function Home() {
           </div>
         </Card>
 
-        <Card className="p-0 flex flex-col">
+        <Card hasImage={true} className="p-0 flex flex-col">
           <Image src={Intelektual} alt="intelektual" className="rounded-xl w-full" />
           <div className="flex flex-col px-4 gap-y-2">
             <HighlightIcon image={Brain} alt="brain" />
@@ -158,7 +157,7 @@ export default function Home() {
           </div>
         </Card>
 
-        <Card className="p-0 flex flex-col">
+        <Card hasImage={true} className="p-0 flex flex-col">
           <Image src={Mental} alt="mental" className="rounded-xl w-full" />
           <div className="flex flex-col px-4 gap-y-2">
             <HighlightIcon image={MoodPuzzled} alt="mood-puzzled" />
@@ -167,7 +166,7 @@ export default function Home() {
           </div>
         </Card>
 
-        <Card className="p-0 flex flex-col">
+        <Card hasImage={true} className="p-0 flex flex-col">
           <Image src={Sensorik} alt="mental" className="rounded-xl w-full" />
           <div className="flex flex-col px-4 gap-y-2">
             <HighlightIcon image={SensorOccupied} alt="sensor-occupied" />
@@ -182,28 +181,28 @@ export default function Home() {
         <h3 className="text-center text-2xl font-semibold">Event dan Dokumentasi</h3>
 
         <div className="overflow-x-scroll flex flex-row gap-x-4">
-          <Card className="p-0 w-72 shrink-0">
+          <Card hasImage={true} className="p-0 w-72 shrink-0">
             <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
             <div className="p-4">
               <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
               <p className="text-sm text-gray-400">20 Jul 2023</p>
             </div>
           </Card>
-          <Card className="p-0 w-72 shrink-0">
+          <Card hasImage={true} className="p-0 w-72 shrink-0">
             <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
             <div className="p-4">
               <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
               <p className="text-sm text-gray-400">20 Jul 2023</p>
             </div>
           </Card>
-          <Card className="p-0 w-72 shrink-0">
+          <Card hasImage={true} className="p-0 w-72 shrink-0">
             <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
             <div className="p-4">
               <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
               <p className="text-sm text-gray-400">20 Jul 2023</p>
             </div>
           </Card>
-          <Card className="p-0 w-72 shrink-0">
+          <Card hasImage={true} className="p-0 w-72 shrink-0">
             <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
             <div className="p-4">
               <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
@@ -218,19 +217,28 @@ export default function Home() {
         <RoundedButton className="bg-white border-gray-400 border-2 w-16 h-16">
           <Image src={ArrowBackDisabled} alt="arrow-back" />
         </RoundedButton>
-        <RoundedButton className="bg-white border-red-800 border-2 w-16 h-16">
+        <RoundedButton className="bg-white border-red-950 border-2 w-16 h-16">
           <Image src={ArrowFoward} alt="arrow-foward" />
         </RoundedButton>
       </div>
 
-      <div className="relative p-4">
-        <Image src={CtaMobile} alt="call-to-action" className="rounded-xl" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4 rounded-xl gap-y-4">
-          <h3 className="text-2xl text-black font-semibold text-center px-4">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h3>
-          <p className="text-lg text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>
-          <Button className="bg-red-800 text-white p-4 mt-4">
-            <p>Hubungi via Email</p>
-          </Button>
+      {/* Call to Action */}
+      <div className="p-4">
+        <div 
+          className="relative rounded-lg"
+          style={{
+            backgroundImage: 'linear-gradient(180deg, #FEF9F9 0%, #EB8F89 100%)', // Adjust the colors and percentages as needed
+          }}
+        >
+          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
+            <div className="flex flex-col justify-center items-center text-white rounded-xl gap-y-4">
+              <h3 className="text-xl text-black font-semibold text-center px-4">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h3>
+              <p className="text-md text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>
+              <a href='mailto:audisifonds@gmail.com' className="bg-red-950 text-white p-4 mt-4 font-medium rounded-lg">
+                <p>Hubungi via Email</p>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -238,10 +246,10 @@ export default function Home() {
       <div className="p-4 flex flex-col items-center gap-y-4">
         <Image src={Logo} alt="logo" className="w-48" />
         <div className="flex items-center justify-center gap-x-4 mt-4">
-          <Image src={Instagram} alt="instagram" className="w-16 h-16 p-4 bg-red-200 rounded-full" />
-          <Image src={Facebook} alt="facebook" className="w-16 h-16 p-4 bg-red-200 rounded-full" />
-          <Image src={LinkedIn} alt="linkedin" className="w-16 h-16 p-4 bg-red-200 rounded-full" />
-          <Image src={Youtube} alt="youtube" className="w-16 h-16 p-4 bg-red-200 rounded-full" />
+          <Image src={Instagram} alt="instagram" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          <Image src={Facebook} alt="facebook" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          <Image src={LinkedIn} alt="linkedin" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          <Image src={Youtube} alt="youtube" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
         </div>
       </div>
 
