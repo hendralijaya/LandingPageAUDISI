@@ -225,9 +225,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between">
+      <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between lg:p-8">
         <h6 className="text-sm md:text-base lg:font-medium">10 event terakhir yang diikuti</h6>
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-4 lg:gap-x-8">
           <RoundedButton className="bg-white border-gray-400 border-2 w-16 h-16">
             <Image src={ArrowBackDisabled} alt="arrow-back" />
           </RoundedButton>
@@ -238,7 +238,7 @@ export default function Home() {
       </div>
 
       {/* Call to Action */}
-      <div className="p-4">
+      <div className="p-4 lg:p-8">
         <div
           className="relative rounded-lg"
           style={{
