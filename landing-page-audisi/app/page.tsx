@@ -18,7 +18,7 @@ export default function Home() {
     <div className="">
       <Header />
       {/* Hero Section */}
-      <div className="px-4 md:px-6">
+      <div className="px-4 md:px-6 lg:p-8">
         <div
           className="relative overflow-hidden flex flex-col items-center gap-3 rounded-xl"
           style={{
@@ -52,11 +52,11 @@ export default function Home() {
       </div>
 
       {/* About Us */}
-      <div className="p-4 space-y-4 md:p-6 md:space-y-6">
+      <div className="p-4 space-y-4 md:p-6 md:space-y-6 lg:p-8 lg:space-y-8">
         <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
-        <div className="lg:flex">
+        <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-1/2">
-            <div className="space-y-4 md:flex md:space-y-0 md:gap-x-6 lg:flex-col lg:gap-y-8">
+            <div className="space-y-4 md:flex md:space-y-0 md:gap-x-6 lg:flex-col lg:gap-y-8 lg:p-8">
               <RoundedButton className="bg-red-950 hover:bg-red-500 md:w-36 md:h-16 rounded-full lg:w-16">
                 <Image src={Campaign} alt="chevron-down" className="w-8 h-8 md:w-10 md:h-10" />
               </RoundedButton>
@@ -68,10 +68,10 @@ export default function Home() {
           </Card>
           <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full lg:w-1/2" layout="cover" />
         </div>
-        <div className="lg:flex">
+        <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-2/3">
-            <div className="space-y-4 md:flex md:space-y-0 md:gap-x-6">
-              <RoundedButton className="bg-red-950 hover:bg-red-500 md:w-56 md:h-16 rounded-full">
+            <div className="space-y-4 md:flex md:space-y-0 md:gap-x-6 lg:flex-col lg:gap-y-8 lg:p-8">
+              <RoundedButton className="bg-red-950 hover:bg-red-500 md:w-56 md:h-16 rounded-full lg:w-16">
                 <Image src={Newspaper} alt="chevron-down" className="w-8 h-8 md:w-10 md:h-10" />
               </RoundedButton>
               <p className="text-left text-lg">
@@ -85,11 +85,11 @@ export default function Home() {
       </div>
 
       {/* Latar Belakang */}
-      <div className="p-4 space-y-4 md:p-6 md:space-y-6">
+      <div className="p-4 space-y-4 md:p-6 md:space-y-6 lg:p-8">
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h3>
         <div className="lg:flex lg:flex-row lg:gap-x-4">
           <Card hasImage={false}>
-            <div className="flex flex-col space-y-6 md:space-y-8">
+            <div className="flex flex-col space-y-6 md:space-y-8 lg:p-8">
               <p className="text-lg">
                 Konvensi Hak-Hak Penyandang Disabilitas telah diratifikasi oleh Indonesia pada tahun 2011. <span className="font-semibold">Pada tahun 2016</span>, Indonesia berhasil memiliki peraturan daerah sendiri yang{' '}
                 <span className="font-semibold">menghormati, menjamin, dan memenuhi hak-hak penyandang disabilitas.</span>
@@ -105,7 +105,7 @@ export default function Home() {
       </div>
 
       {/* Visi dan Misi */}
-      <div className="p-4 flex flex-col gap-y-4">
+      <div className="p-4 flex flex-col gap-y-4 lg:p-8">
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h3>
         <div className="md:grid md:grid-cols-2 md:grid-rows-3 md:gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:gap-4">
           <Card hasImage={true} className="p-0 flex flex-col md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2 lg:w-full lg:h-full">
@@ -150,7 +150,7 @@ export default function Home() {
           Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:mb-32 lg:flex">
           <Card hasImage={true} className="p-0 flex flex-col">
             <Image src={Fisik} alt="fisik" className="rounded-xl w-full" />
             <div className="flex flex-col px-4 gap-y-2">
@@ -226,7 +226,7 @@ export default function Home() {
       </div>
 
       <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between">
-        <h6 className="text-sm md:text-base">10 event terakhir yang diikuti</h6>
+        <h6 className="text-sm md:text-base lg:font-medium">10 event terakhir yang diikuti</h6>
         <div className="flex gap-x-4">
           <RoundedButton className="bg-white border-gray-400 border-2 w-16 h-16">
             <Image src={ArrowBackDisabled} alt="arrow-back" />
