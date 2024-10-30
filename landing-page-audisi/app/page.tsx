@@ -1,21 +1,21 @@
 'use client';
 
-import Button from '@/components/Button';
-import { Logo, LatarBelakang, HeroMobile, HeroTab, HeroDesktop, AboutActivityDesktop, AboutSidangDesktop } from '@/public/img';
-import { Animation, TextFields, TextToSpeech } from '@/public/icon';
+import Button from '../components/Button';
+import { Logo, LatarBelakang, HeroMobile, HeroTab, HeroDesktop, AboutActivityDesktop, AboutSidangDesktop } from '../public/img';
+import { TextFields, TextToSpeech } from '../public/icon';
 import Image from 'next/image';
-import { ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '@/public/icon';
-import Card from '@/components/Card';
-import RoundedButton from '@/components/RoundedButton';
-import { VisiMobile, VisiTab, VisiDesktop } from '@/public/img/visi-misi';
-import HighlightText from '@/components/HighlightText';
-import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabilitas';
-import HighlightIcon from '@/components/HighlightIcon';
+import { ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '../public/icon';
+import Card from '../components/Card';
+import RoundedButton from '../components/RoundedButton';
+import { VisiMobile, VisiTab, VisiDesktop } from '../public/img/visi-misi';
+import HighlightText from '../components/HighlightText';
+import { Fisik, Intelektual, Mental, Sensorik } from '../public/img/jenis-disabilitas';
+import HighlightIcon from '../components/HighlightIcon';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '@/public/img/mitra';
+import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '../public/img/mitra';
 import DropdownButton from '../components/DropdownButton';
-import ToggleSwitch from '@/components/ToggleSwitch';
+import ToggleSwitch from '../components/ToggleSwitch';
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -85,8 +85,8 @@ export default function Home() {
     'Visi dan Misi. Visi. Melakukan advokasi berdasar pada kajian untuk mewujudkan masyarakat inklusif yang menghormati, melindungi, dan memenuhi hak penyandang disabilitas dalam segala aspek kehidupan. Misi 1. Kajian Kebijakan dan Inklusi Sosial Terbaru. Melakukan kajian tentang kebijakan dan (inklusi) sosial terkini sebagai landasan untuk mewujudkan Masyarakat Inklusi Disabilitas. Misi 2. Advokasi Hak Penyandang Disabilitas. Melakukan advokasi untuk Penghormatan, Perlindungan, dan Pemenuhan Hak penyandang disabilitas di segala bidang kehidupan. Misi 3. Pemberdayaan Penyandang Disabilitas. Melakukan pemberdayaan penyandang disabilitas sebagai pelaku pembangunan yang mandiri, produktif, dan berintegritas. Misi 4.Pengembangan Jaringan dan Kerja Sama. Mengembangkan jaringan dan kerjasama dengan berbagai pihak untuk mewujudkan masyarakat inklusif bagi penyandang disabilitas.',
     'Terkait Disabilitas. Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat. Disabilitas Fisik. Meliputi keterbatasan pada fungsi tubuh yang menghambat gerak atau aktivitas fisik, misalnya amputasi, kelumpuhan, atau gangguan pada tubuh. Disabilitas Intelektual. Melibatkan keterbatasan fungsi kognitif yang mempengaruhi kemampuan belajar dan memahami informasi. Disabilitas Mental. Berhubungan dengan gangguan kesehatan mental seperti depresi, bipolar, atau skizofrenia, yang mempengaruhi emosi dan perilaku. Disabilitas Sensorik. Terkait dengan gangguan pada pancaindra, seperti penglihatan, pendengaran, atau wicara, yang membatasi interaksi sensorik.',
     'Event dan Dokumentasi',
-    'Berkolaborasi untuk Masa Depan yang Lebih Inklusif. Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut. Hubungi via Email di audisifonds@gmail.com',
-    'Audisi. Instagram di @audisifoundation. Facebook di Audisi.  Linkedin di Advokasi untuk Disabilitas Inklusi (AUDISI)Indonesia. Youtube di Audisi Foundation.',
+    'Berkolaborasi untuk Masa Depan yang Lebih Inklusif. Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut. Hubungi via Email di audisifonds..gmail.com',
+    'Audisi. Instagram di ..audisifoundation. Facebook di Audisi.  Linkedin di Advokasi untuk Disabilitas Inklusi (AUDISI)Indonesia. Youtube di Audisi Foundation.',
   ];
 
   const [scrolled, setScrolled] = useState(false);
@@ -142,7 +142,7 @@ export default function Home() {
             backgroundImage: 'linear-gradient(180deg, #FEF9F9 10%, #DC3E42 100%)', // Adjust the colors and percentages as needed
           }}
         >
-          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat w-full">
+          <div className="bg-[url('../public/img/pattern/pattern-mobile.png')] md:bg-[url('../public/img/pattern/pattern-tablet.png')] lg:bg-[url('../public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat w-full">
             <div className="px-4 pt-20 md:pt-32 flex flex-col items-center gap-4 md:gap-6">
               <h1 className="lg:text-6xl lg:leading-normal text-4xl leading-snug text-black font-semibold text-center lg:px-20 px-4">
                 Bersama untuk Mewujudkan <br className="md:block hidden" />
@@ -189,41 +189,40 @@ export default function Home() {
       <div id="tentang-audisi" className="p-4 md:p-6 lg:p-8 flex flex-col gap-8" onClick={() => speak(data[2])}>
         <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
         <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 lg:col-span-5 lg:flex lg:gap-x-2">
-              <Card hasImage={false} className="">
-                <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
-                  <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
-                    <Image src={Campaign} alt="Campaign Icon" className="text-4xl" />
-                  </RoundedButton>
-                  <p className="text-left text-lg">
-                    Advokasi untuk Disabilitas Inklusi (AUDISI) Indonesia adalah non-profit organization yang berdiri sejak tahun 2017 yang aktif dalam <span className="font-semibold">mengkampanyekan pentingnya inklusi disabilitas</span> ke
-                    masyarakat di seluruh Indonesia.
-                  </p>
-                </div>
-              </Card>
-            </div>
-            <div className="col-span-12 lg:col-span-7 rounded-lg overflow-hidden">
-              <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full object-fill" layout="cover" />
-            </div>
-            <div className="col-span-12 lg:col-span-7 lg:flex lg:gap-x-2">
-              <Card hasImage={false} className="">
-                <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
-                  <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
-                    <Image src={Newspaper} alt="Newspaper Icon" className="text-4xl" />
-                  </RoundedButton>
-                  <p className="text-left text-lg">
-                    AUDISI Foundation bertujuan untuk memberikan sosialisasi dan menerapkan <span className="font-semibold">hak-hak penyandang disabilitas sesuai Undang-Undang Nomor 8 Tahun 2016.</span> Undang-undang ini menjamin perlindungan,
-                    penghormatan, dan pemenuhan hak-hak penyandang disabilitas dalam berbagai aspek kehidupan, termasuk kesehatan, pendidikan, pekerjaan, dan aksesibilitas.
-                  </p>
-                </div>
-              </Card>
-            </div>
-            <div className="col-span-12 lg:col-span-5 rounded-lg overflow-hidden">
-              <Image src={AboutSidangDesktop} alt="sidang-audisi" className="hidden lg:rounded-xl md:block md:w-full" layout="cover" />
-            </div>
+          <div className="col-span-12 lg:col-span-5 lg:flex lg:gap-x-2">
+            <Card hasImage={false} className="">
+              <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
+                <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+                  <Image src={Campaign} alt="Campaign Icon" className="text-4xl" />
+                </RoundedButton>
+                <p className="text-left text-lg">
+                  Advokasi untuk Disabilitas Inklusi (AUDISI) Indonesia adalah non-profit organization yang berdiri sejak tahun 2017 yang aktif dalam <span className="font-semibold">mengkampanyekan pentingnya inklusi disabilitas</span> ke
+                  masyarakat di seluruh Indonesia.
+                </p>
+              </div>
+            </Card>
+          </div>
+          <div className="col-span-12 lg:col-span-7 rounded-lg overflow-hidden">
+            <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full object-fill" layout="cover" />
+          </div>
+          <div className="col-span-12 lg:col-span-7 lg:flex lg:gap-x-2">
+            <Card hasImage={false} className="">
+              <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
+                <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+                  <Image src={Newspaper} alt="Newspaper Icon" className="text-4xl" />
+                </RoundedButton>
+                <p className="text-left text-lg">
+                  AUDISI Foundation bertujuan untuk memberikan sosialisasi dan menerapkan <span className="font-semibold">hak-hak penyandang disabilitas sesuai Undang-Undang Nomor 8 Tahun 2016.</span> Undang-undang ini menjamin
+                  perlindungan, penghormatan, dan pemenuhan hak-hak penyandang disabilitas dalam berbagai aspek kehidupan, termasuk kesehatan, pendidikan, pekerjaan, dan aksesibilitas.
+                </p>
+              </div>
+            </Card>
+          </div>
+          <div className="col-span-12 lg:col-span-5 rounded-lg overflow-hidden">
+            <Image src={AboutSidangDesktop} alt="sidang-audisi" className="hidden lg:rounded-xl md:block md:w-full" layout="cover" />
           </div>
         </div>
-        
+      </div>
 
       {/* Latar Belakang */}
       <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-8" onClick={() => speak(data[3])}>
@@ -243,11 +242,9 @@ export default function Home() {
             </Card>
           </div>
           <div className="lg:col-span-6 col-span-12">
-            <Image src={LatarBelakang} alt="latar-belakang" className="rounded-lg object-fill w-full"/>
+            <Image src={LatarBelakang} alt="latar-belakang" className="rounded-lg object-fill w-full" />
           </div>
         </div>
-
-        
       </div>
 
       {/* Visi dan Misi */}
@@ -375,13 +372,13 @@ export default function Home() {
             backgroundImage: 'linear-gradient(180deg, #FEF9F9 10%, #EB8F89 100%)', // Adjust the colors and percentages as needed
           }}
         >
-          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
+          <div className="bg-[url('../public/img/pattern/pattern-mobile.png')] md:bg-[url('../public/img/pattern/pattern-tablet.png')] lg:bg-[url('../public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
             <div className="flex flex-col justify-center items-center text-white rounded-xl gap-y-4">
               <h2 className="text-2xl text-black font-semibold text-center px-4 md:text-3xl md:px-20">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h2>
               <p className=" text-lg text-black text-center px-4">
                 Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. <br className="lg:block hidden" /> Hubungi kami melalui email untuk berdiskusi lebih lanjut
               </p>
-              <a href="mailto:audisifonds@gmail.com" className="bg-red-950 text-white p-4 mt-4 font-medium rounded-lg">
+              <a href="mailto:audisifonds..gmail.com" className="bg-red-950 text-white p-4 mt-4 font-medium rounded-lg">
                 <p>Hubungi via Email</p>
               </a>
             </div>
@@ -402,7 +399,7 @@ export default function Home() {
           <Link href={'https://www.linkedin.com/company/advokasiinklusidisabilitasaudisi/'}>
             <Image src={LinkedIn} alt="linkedin" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
           </Link>
-          <Link href={'https://www.youtube.com/@audisifoundation6646'}>
+          <Link href={'https://www.youtube.com/..audisifoundation6646'}>
             <Image src={Youtube} alt="youtube" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
           </Link>
         </div>
