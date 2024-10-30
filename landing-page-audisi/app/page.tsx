@@ -1,9 +1,9 @@
-'use client'; // Mark this component as a client component
+'use client';
 
 import Button from '@/components/Button';
 import { Logo, LatarBelakangMobile, LatarBelakangTab, HeroMobile, HeroTab, HeroDesktop, AboutActivityDesktop, AboutSidangDesktop } from '@/public/img';
 import Image from 'next/image';
-import { ArrowBackDisabled, ArrowFoward, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '@/public/icon';
+import { ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '@/public/icon';
 import Card from '@/components/Card';
 import RoundedButton from '@/components/RoundedButton';
 import { VisiMobile, VisiTab } from '@/public/img/visi-misi';
@@ -12,8 +12,59 @@ import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabil
 import HighlightIcon from '@/components/HighlightIcon';
 
 import Header from '@/components/Header';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isBackDisabled, setIsBackDisabled] = useState(true);
+  const [isNextDisabled, setIsNextDisabled] = useState(false);
+
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setIsBackDisabled(scrollLeft === 0);
+      setIsNextDisabled(scrollLeft + clientWidth >= scrollWidth);
+    }
+  };
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    checkScrollPosition();
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.addEventListener('scroll', checkScrollPosition);
+    }
+    return () => {
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.removeEventListener('scroll', checkScrollPosition);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const element = document.getElementById(window.location.hash.substring(1));
+      if (element) {
+        const yOffSet = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffSet;
+        element.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
   return (
     <div className="">
       <Header />
@@ -31,7 +82,9 @@ export default function Home() {
                 Bersama untuk Mewujudkan <span className="text-red-950 font-extrabold">Aksesibilitas</span> untuk Semua
               </h3>
               <Button className="bg-red-950 text-white p-4 md:p-6 w-fit font-medium">
-                <p className="md:text-xl font-semibold">Pelajari lebih lanjut</p>
+                <a href="#tentang-audisi-anchor" className="md:text-xl font-semibold">
+                  Pelajari lebih lanjut
+                </a>
               </Button>
             </div>
 
@@ -45,14 +98,14 @@ export default function Home() {
         </div>
       </div>
       {/* Mitra Kerja Sama */}
-      <div className="flex justify-center">
+      <div id="tentang-audisi-anchor" className="flex justify-center">
         <p className="text-center px-8 py-4 md:px-12 md:py-6 md:text-xl">
           Telah berkolaborasi dan bekerja sama dengan <span className=" font-bold">lebih dari 10 mitra</span>
         </p>
       </div>
 
       {/* About Us */}
-      <div className="p-4 space-y-4 md:p-6 md:space-y-6 lg:p-8 lg:space-y-8">
+      <div id="tentang-audisi" className="p-4 space-y-4 md:p-6 md:space-y-6 lg:p-8 lg:space-y-8">
         <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
         <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-1/2">
@@ -193,46 +246,29 @@ export default function Home() {
       <div className="flex flex-col p-4 md:p-6 md:gap-y-6">
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h3>
 
-        <div className="overflow-x-scroll flex flex-row gap-x-4">
-          <Card hasImage={true} className="p-0 w-72 shrink-0">
-            <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
-            <div className="p-4">
-              <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
-              <p className="text-sm text-gray-400">20 Jul 2023</p>
-            </div>
-          </Card>
-          <Card hasImage={true} className="p-0 w-72 shrink-0">
-            <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
-            <div className="p-4">
-              <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
-              <p className="text-sm text-gray-400">20 Jul 2023</p>
-            </div>
-          </Card>
-          <Card hasImage={true} className="p-0 w-72 shrink-0">
-            <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
-            <div className="p-4">
-              <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
-              <p className="text-sm text-gray-400">20 Jul 2023</p>
-            </div>
-          </Card>
-          <Card hasImage={true} className="p-0 w-72 shrink-0">
-            <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
-            <div className="p-4">
-              <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
-              <p className="text-sm text-gray-400">20 Jul 2023</p>
-            </div>
-          </Card>
+        <div ref={scrollContainerRef} className="overflow-x-scroll flex flex-row gap-x-4">
+          {Array(10)
+            .fill(null)
+            .map((_, index) => (
+              <Card key={index} hasImage={true} className="p-0 w-72 shrink-0">
+                <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
+                <div className="p-4">
+                  <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
+                  <p className="text-sm text-gray-400">20 Jul 2023</p>
+                </div>
+              </Card>
+            ))}
         </div>
       </div>
 
       <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between lg:p-8">
         <h6 className="text-sm md:text-base lg:font-medium">10 event terakhir yang diikuti</h6>
         <div className="flex gap-x-4 lg:gap-x-8">
-          <RoundedButton className="bg-white border-gray-400 border-2 w-16 h-16">
-            <Image src={ArrowBackDisabled} alt="arrow-back" />
+          <RoundedButton id="back-arrow" className={`bg-white border-2 w-16 h-16 ${isBackDisabled ? 'border-gray-400' : 'border-red-950'}`} onClick={isBackDisabled ? undefined : scrollLeft}>
+            {isBackDisabled ? <Image src={ArrowBackDisabled} alt="arrow-back-disabled" /> : <Image src={ArrowBack} alt="arrow-back" />}
           </RoundedButton>
-          <RoundedButton className="bg-white border-red-950 border-2 w-16 h-16">
-            <Image src={ArrowFoward} alt="arrow-foward" />
+          <RoundedButton id="next-arrow" className={`bg-white border-2 w-16 h-16 ${isNextDisabled ? 'border-gray-400' : 'border-red-950'}`} onClick={isNextDisabled ? undefined : scrollRight}>
+            {isNextDisabled ? <Image src={ArrowFowardDisabled} alt="arrow-foward-disabled" /> : <Image src={ArrowFoward} alt="arrow-foward" />}
           </RoundedButton>
         </div>
       </div>
@@ -261,10 +297,18 @@ export default function Home() {
       <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between">
         <Image src={Logo} alt="logo" className="w-48" />
         <div className="flex items-center justify-center gap-x-4 mt-4">
-          <Image src={Instagram} alt="instagram" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
-          <Image src={Facebook} alt="facebook" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
-          <Image src={LinkedIn} alt="linkedin" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
-          <Image src={Youtube} alt="youtube" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          <Link href={'https://www.instagram.com/audisifoundation/'}>
+            <Image src={Instagram} alt="instagram" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          </Link>
+          <Link href={'https://www.facebook.com/disabledpeopleorganization'}>
+            <Image src={Facebook} alt="facebook" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          </Link>
+          <Link href={'https://www.linkedin.com/company/advokasiinklusidisabilitasaudisi/'}>
+            <Image src={LinkedIn} alt="linkedin" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          </Link>
+          <Link href={'https://www.youtube.com/@audisifoundation6646'}>
+            <Image src={Youtube} alt="youtube" className="w-16 h-16 p-4 bg-red-400 rounded-full" />
+          </Link>
         </div>
       </div>
 
