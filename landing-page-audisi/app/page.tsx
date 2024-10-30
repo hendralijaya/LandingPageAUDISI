@@ -11,7 +11,7 @@ import { VisiMobile, VisiTab, VisiDesktop } from '@/public/img/visi-misi';
 import HighlightText from '@/components/HighlightText';
 import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabilitas';
 import HighlightIcon from '@/components/HighlightIcon';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '@/public/img/mitra';
 import DropdownButton from '../components/DropdownButton';
@@ -103,7 +103,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <div className="">
+    <div className={isDyslexia ? 'open-dyslexic' : ''}>
       <div className={`px-6 md:px-10 py-4 md:py-6 fixed top-0 left-0 z-10 w-full flex justify-between transition-colors duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
         <Image src={Logo} alt="logo" className="max-w-[8rem] md:max-w-[12rem] p-2 md:p-4" />
         <DropdownButton buttonLabel="Options">
