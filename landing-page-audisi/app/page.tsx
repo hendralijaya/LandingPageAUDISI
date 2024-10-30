@@ -268,7 +268,7 @@ export default function Home() {
             </Card>
           </div>
           <div className="col-span-12 lg:col-span-7 rounded-lg overflow-hidden">
-            <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full object-fill" layout="cover" />
+            <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full md:h-full object-cover" layout="cover" />
           </div>
           <div className="col-span-12 lg:col-span-7 lg:flex lg:gap-x-2">
             <Card hasImage={false} className="">
@@ -284,7 +284,7 @@ export default function Home() {
             </Card>
           </div>
           <div className="col-span-12 lg:col-span-5 rounded-lg overflow-hidden">
-            <Image src={AboutSidangDesktop} alt="sidang-audisi" className="hidden lg:rounded-xl md:block md:w-full" layout="cover" />
+            <Image src={AboutSidangDesktop} alt="sidang-audisi" className="hidden lg:rounded-xl md:block md:w-full md:h-full object-cover" layout="cover" />
           </div>
         </div>
       </div>
@@ -315,7 +315,7 @@ export default function Home() {
       {/* Visi dan Misi */}
       <div className="p-4 flex flex-col gap-8 lg:p-8" onClick={() => speak(data[4])}>
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h3>
-        <div className="grid md:grid-cols-2 md:grid-rows-3 md:gap-y-4 lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 gap-4">
+        <div className="grid md:grid-cols-2 md:gap-y-4 lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 gap-4">
           <Card hasImage={true} className="p-0 flex flex-col md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2 lg:w-full lg:h-full overflow-hidden">
             <Image src={VisiDesktop} alt="hero" className="rounded-ee-xl rounded-es-xl hidden lg:block w-full object-contain" layout="responsive" />
             <Image src={VisiMobile} alt="hero" className="rounded-t-xl md:hidden object-contain w-full" layout="responsive" width={500} height={300} />
@@ -325,27 +325,27 @@ export default function Home() {
               <p className="text-lg">Melakukan advokasi berdasar pada kajian untuk mewujudkan masyarakat inklusif yang menghormati, melindungi, dan memenuhi hak penyandang disabilitas dalam segala aspek kehidupan.</p>
             </div>
           </Card>
-          <Card hasImage={false} className="p-4 lg:py-8 gap-y-2">
+          <Card hasImage={false} className="p-4 lg:py-8 gap-2">
             <HighlightText text="Misi 1" className="" />
-            <h4 className="text-left text-2xl font-semibold md:text-xl">Kajian Kebijakan dan Inklusi Sosial Terbaru</h4>
+            <h4 className="text-left font-semibold text-xl">Kajian Kebijakan dan Inklusi Sosial Terbaru</h4>
             <p className="text-lg">Melakukan kajian tentang kebijakan dan (inklusi) sosial terkini sebagai landasan untuk mewujudkan Masyarakat Inklusi Disabilitas.</p>
           </Card>
 
           <Card hasImage={false} className="p-4 lg:py-8 gap-2">
             <HighlightText text="Misi 2" className="" />
-            <h4 className="text-left text-2xl font-semibold md:text-xl">Advokasi Hak Penyandang Disabilitas</h4>
+            <h4 className="text-left font-semibold text-xl">Advokasi Hak Penyandang Disabilitas</h4>
             <p className="text-lg">Melakukan advokasi untuk Penghormatan, Perlindungan, dan Pemenuhan Hak penyandang disabilitas di segala bidang kehidupan.</p>
           </Card>
 
           <Card hasImage={false} className="p-4 lg:py-8 gap-2">
             <HighlightText text="Misi 3" className="" />
-            <h4 className="text-left text-2xl font-semibold md:text-xl">Pemberdayaan Penyandang Disabilitas</h4>
+            <h4 className="text-left font-semibold text-xl">Pemberdayaan Penyandang Disabilitas</h4>
             <p className="text-lg">Melakukan pemberdayaan penyandang disabilitas sebagai pelaku pembangunan yang mandiri, produktif, dan berintegritas.</p>
           </Card>
 
           <Card hasImage={false} className="p-4 lg:py-8 gap-2 md:ml-auto">
             <HighlightText text="Misi 4" className="" />
-            <h4 className="text-left text-2xl font-semibold md:text-xl">Pengembangan Jaringan dan Kerja Sama</h4>
+            <h4 className="text-left font-semibold text-xl">Pengembangan Jaringan dan Kerja Sama</h4>
             <p className="text-lg">Mengembangkan jaringan dan kerjasama dengan berbagai pihak untuk mewujudkan masyarakat inklusif bagi penyandang disabilitas.</p>
           </Card>
         </div>
@@ -364,7 +364,7 @@ export default function Home() {
             <Image src={Fisik} alt="fisik" className="rounded-xl w-full" />
             <div className="flex flex-col px-4 gap-y-2">
               <HighlightIcon image={Disabled} alt="disabled" />
-              <h4 className="text-left text-2xl font-semibold">Disabilitas Fisik</h4>
+              <h4 className="text-left text-xl font-semibold">Disabilitas Fisik</h4>
               <p className="text-lg">Meliputi keterbatasan pada fungsi tubuh yang menghambat gerak atau aktivitas fisik, misalnya amputasi, kelumpuhan, atau gangguan pada tubuh.</p>
             </div>
           </Card>
@@ -373,7 +373,7 @@ export default function Home() {
             <Image src={Intelektual} alt="intelektual" className="rounded-xl w-full" />
             <div className="flex flex-col px-4 gap-y-2">
               <HighlightIcon image={Brain} alt="brain" />
-              <h4 className="text-left text-2xl font-semibold">Disabilitas Intelektual</h4>
+              <h4 className="text-left text-xl font-semibold">Disabilitas Intelektual</h4>
               <p className="text-lg">Melibatkan keterbatasan fungsi kognitif yang mempengaruhi kemampuan belajar dan memahami informasi.</p>
             </div>
           </Card>
@@ -382,7 +382,7 @@ export default function Home() {
             <Image src={Mental} alt="mental" className="rounded-xl w-full" />
             <div className="flex flex-col px-4 gap-y-2">
               <HighlightIcon image={MoodPuzzled} alt="mood-puzzled" />
-              <h4 className="text-left text-2xl font-semibold">Disabilitas Mental</h4>
+              <h4 className="text-left text-xl font-semibold">Disabilitas Mental</h4>
               <p className="text-lg">Berhubungan dengan gangguan kesehatan mental seperti depresi, bipolar, atau skizofrenia, yang mempengaruhi emosi dan perilaku.</p>
             </div>
           </Card>
@@ -391,7 +391,7 @@ export default function Home() {
             <Image src={Sensorik} alt="mental" className="rounded-xl w-full" />
             <div className="flex flex-col px-4 gap-y-2">
               <HighlightIcon image={SensorOccupied} alt="sensor-occupied" />
-              <h4 className="text-left text-2xl font-semibold">Disabilitas Sensorik</h4>
+              <h4 className="text-left text-xl font-semibold">Disabilitas Sensorik</h4>
               <p className="text-lg">Terkait dengan gangguan pada pancaindra, seperti penglihatan, pendengaran, atau wicara, yang membatasi interaksi sensorik.</p>
             </div>
           </Card>
@@ -406,7 +406,7 @@ export default function Home() {
           {eventData.map((event, index) => (
             <Card key={index} hasImage={true} className="p-0 w-72 shrink-0">
               <Image src={event.image} alt={event.title} className="rounded-xl h-64" />
-              <div className="p-4">
+              <div className="p-4 flex flex-col gap-2">
                 <h5 className="font-semibold">{event.title}</h5>
                 <p className="text-sm text-gray-400">{event.date}</p>
               </div>
