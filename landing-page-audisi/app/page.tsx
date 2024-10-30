@@ -17,16 +17,12 @@ import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, T
 import DropdownButton from '../components/DropdownButton';
 import ToggleSwitch from '@/components/ToggleSwitch';
 
-import { useFontContext } from './FontContext';
-
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isBackDisabled, setIsBackDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
-  const { isDyslexicFont } = useFontContext();
   const [isSpeech, setIsSpeech] = useState(false);
   const [isDyslexia, setIsDyslexia] = useState(false);
-  const [isAnimation, setIsAnimation] = useState(false);
 
   const speak = (text: string) => {
     if (!isSpeech) return;
@@ -134,18 +130,6 @@ export default function Home() {
                 </p>
               </div>
               <ToggleSwitch isChecked={isDyslexia} onToggle={() => setIsDyslexia(!isDyslexia)} />
-            </div>
-          </div>
-
-          <div className="p-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <Image src={Animation} alt="Reduce Animation Icon" className="w-8 text-red-950" />
-                <p className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
-                  Reduce Animation
-                </p>
-              </div>
-              <ToggleSwitch isChecked={isAnimation} onToggle={() => setIsAnimation(!isAnimation)} />
             </div>
           </div>
         </DropdownButton>
