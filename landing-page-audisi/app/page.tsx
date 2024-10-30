@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/Button';
+import { Animation, TextFields, TextToSpeech } from '@/public/icon';
 import { Logo, LatarBelakangMobile, LatarBelakangTab, HeroMobile, HeroTab, HeroDesktop, AboutActivityDesktop, AboutSidangDesktop } from '@/public/img';
 import Image from 'next/image';
 import { ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '@/public/icon';
@@ -10,11 +11,11 @@ import { VisiMobile, VisiTab, VisiDesktop } from '@/public/img/visi-misi';
 import HighlightText from '@/components/HighlightText';
 import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabilitas';
 import HighlightIcon from '@/components/HighlightIcon';
-
-import Header from '@/components/Header';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '@/public/img/mitra';
+import DropdownButton from '../components/DropdownButton';
+import ToggleSwitch from '@/components/ToggleSwitch';
 
 import { useFontContext } from './FontContext';
 
@@ -23,12 +24,16 @@ export default function Home() {
   const [isBackDisabled, setIsBackDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const { isDyslexicFont } = useFontContext();
+  const [isSpeech, setIsSpeech] = useState(false);
+  const [isDyslexia, setIsDyslexia] = useState(false);
+  const [isAnimation, setIsAnimation] = useState(false);
 
-  const speak = useCallback((text: string) => {
+  const speak = (text: string) => {
+    if (!isSpeech) return;
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'id-ID'; // Set the language to Indonesian
+    utterance.lang = 'id-ID';
     window.speechSynthesis.speak(utterance);
-  }, []);
+  };
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
@@ -87,9 +92,64 @@ export default function Home() {
     'Berkolaborasi untuk Masa Depan yang Lebih Inklusif. Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut. Hubungi via Email di audisifonds@gmail.com',
     'Audisi. Instagram di @audisifoundation. Facebook di Audisi.  Linkedin di Advokasi untuk Disabilitas Inklusi (AUDISI)Indonesia. Youtube di Audisi Foundation.',
   ];
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <div className={isDyslexicFont ? 'open-dyslexic' : ''}>
-      <Header />
+    <div className="">
+      <div className={`px-6 md:px-10 py-4 md:py-6 fixed top-0 left-0 z-10 w-full flex justify-between transition-colors duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+        <Image src={Logo} alt="logo" className="max-w-[8rem] md:max-w-[12rem] p-2 md:p-4" />
+        <DropdownButton buttonLabel="Options">
+          <div className="p-3">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <Image src={TextToSpeech} alt="Text to Speech Icon" className="w-8 text-red-950" />
+                <p className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+                  Text to Speech
+                </p>
+              </div>
+              <ToggleSwitch
+                isChecked={isSpeech}
+                onToggle={() => {
+                  setIsSpeech(!isSpeech);
+                  console.log('isSpeech after toggle:', !isSpeech);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="p-3">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <Image src={TextFields} alt="Dyslexia-Friendly Text Icon" className="w-8 text-red-950" />
+                <p className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+                  Dyslexia-Friendly Text
+                </p>
+              </div>
+              <ToggleSwitch isChecked={isDyslexia} onToggle={() => setIsDyslexia(!isDyslexia)} />
+            </div>
+          </div>
+
+          <div className="p-3">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <Image src={Animation} alt="Reduce Animation Icon" className="w-8 text-red-950" />
+                <p className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+                  Reduce Animation
+                </p>
+              </div>
+              <ToggleSwitch isChecked={isAnimation} onToggle={() => setIsAnimation(!isAnimation)} />
+            </div>
+          </div>
+        </DropdownButton>
+      </div>
       {/* Hero Section */}
       <div className="px-4 md:px-6 lg:px-6 lg:py-4" onClick={() => speak(data[0])}>
         <div
@@ -101,7 +161,8 @@ export default function Home() {
           <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat w-full">
             <div className="px-4 pt-20 md:pt-32 flex flex-col items-center gap-4 md:gap-6">
               <h1 className="lg:text-6xl lg:leading-normal text-4xl leading-snug text-black font-semibold text-center lg:px-20 px-4">
-                Bersama untuk Mewujudkan <br className='md:block hidden'/><span className="text-red-950 font-extrabold">Aksesibilitas</span> untuk Semua
+                Bersama untuk Mewujudkan <br className="md:block hidden" />
+                <span className="text-red-950 font-extrabold">Aksesibilitas</span> untuk Semua
               </h1>
               <Button className="bg-red-950 text-white p-4 md:p-6 w-fit font-medium">
                 <a href="#tentang-audisi-anchor" className="lg:text-2xl md:text-xl font-semibold">
@@ -321,7 +382,9 @@ export default function Home() {
           <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
             <div className="flex flex-col justify-center items-center text-white rounded-xl gap-y-4">
               <h2 className="text-2xl text-black font-semibold text-center px-4 md:text-3xl md:px-20">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h2>
-              <p className=" text-lg text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. <br className='lg:block hidden'/> Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>
+              <p className=" text-lg text-black text-center px-4">
+                Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. <br className="lg:block hidden" /> Hubungi kami melalui email untuk berdiskusi lebih lanjut
+              </p>
               <a href="mailto:audisifonds@gmail.com" className="bg-red-950 text-white p-4 mt-4 font-medium rounded-lg">
                 <p>Hubungi via Email</p>
               </a>
