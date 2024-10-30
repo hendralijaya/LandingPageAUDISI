@@ -12,7 +12,7 @@ import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabil
 import HighlightIcon from '@/components/HighlightIcon';
 
 import Header from '@/components/Header';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '@/public/img/mitra';
 
@@ -23,6 +23,12 @@ export default function Home() {
   const [isBackDisabled, setIsBackDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const { isDyslexicFont } = useFontContext();
+
+  const speak = useCallback((text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'id-ID'; // Set the language to Indonesian
+    window.speechSynthesis.speak(utterance);
+  }, []);
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
@@ -69,11 +75,23 @@ export default function Home() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  const data = [
+    'Bersama untuk mewujudkan Aksesibilitas untuk Semua. Pelajari lebih lanjut',
+    'Telah berkolaborasi dan bekerja sama dengan lebih dari 10 mitra. Komnas HAM, Kantor Staf Presiden, Badan Pengawas Pemilihan Umum, Dewan Perwakilan Rakyat Daerah Kota Tangerang Selatan, Dewan Perwakilan Rakyat Daerah Provinsi Banten, Badan Nasional Penanggulangan Bencana, Kementrian Sosial Republik Indonesia, Grab Indonesia, Air Asia, Kementrian Pemuda dan Olahraga, Wahana Visi Indonesia, USAID From American People dan lainnya',
+    'Tentang AUDISI Foundation. Advokasi untuk Disabilitas Inklusi (AUDISI) Indonesia adalah non-profit organization yang berdiri sejak tahun 2017 yang aktif dalam mengkampanyekan pentingnya inklusi disabilitas ke masyarakat di seluruh Indonesia. AUDISI Foundation bertujuan untuk memberikan sosialisasi dan menerapkan hak-hak penyandang disabilitas sesuai Undang-Undang Nomor 8 Tahun 2016. Undang-undang ini menjamin perlindungan, penghormatan, dan pemenuhan hak-hak penyandang disabilitas dalam berbagai aspek kehidupan, termasuk kesehatan, pendidikan, pekerjaan, dan aksesibilitas.',
+    'Latar Belakang. Konvensi Hak-Hak Penyandang Disabilitas telah diratifikasi oleh Indonesia pada tahun 2011. Pada tahun 2016, Indonesia berhasil memiliki peraturan daerah sendiri yang menghormati, menjamin, dan memenuhi hak-hak penyandang disabilitas. AUDISI Foundation berupaya mengadvokasi agar peraturan tersebut dapat dilaksanakan dengan baik untuk mencapai masyarakat yang inklusif.',
+    'Visi dan Misi. Visi. Melakukan advokasi berdasar pada kajian untuk mewujudkan masyarakat inklusif yang menghormati, melindungi, dan memenuhi hak penyandang disabilitas dalam segala aspek kehidupan. Misi 1. Kajian Kebijakan dan Inklusi Sosial Terbaru. Melakukan kajian tentang kebijakan dan (inklusi) sosial terkini sebagai landasan untuk mewujudkan Masyarakat Inklusi Disabilitas. Misi 2. Advokasi Hak Penyandang Disabilitas. Melakukan advokasi untuk Penghormatan, Perlindungan, dan Pemenuhan Hak penyandang disabilitas di segala bidang kehidupan. Misi 3. Pemberdayaan Penyandang Disabilitas. Melakukan pemberdayaan penyandang disabilitas sebagai pelaku pembangunan yang mandiri, produktif, dan berintegritas. Misi 4.Pengembangan Jaringan dan Kerja Sama. Mengembangkan jaringan dan kerjasama dengan berbagai pihak untuk mewujudkan masyarakat inklusif bagi penyandang disabilitas.',
+    'Terkait Disabilitas. Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat. Disabilitas Fisik. Meliputi keterbatasan pada fungsi tubuh yang menghambat gerak atau aktivitas fisik, misalnya amputasi, kelumpuhan, atau gangguan pada tubuh. Disabilitas Intelektual. Melibatkan keterbatasan fungsi kognitif yang mempengaruhi kemampuan belajar dan memahami informasi. Disabilitas Mental. Berhubungan dengan gangguan kesehatan mental seperti depresi, bipolar, atau skizofrenia, yang mempengaruhi emosi dan perilaku. Disabilitas Sensorik. Terkait dengan gangguan pada pancaindra, seperti penglihatan, pendengaran, atau wicara, yang membatasi interaksi sensorik.',
+    'Event dan Dokumentasi',
+    'Berkolaborasi untuk Masa Depan yang Lebih Inklusif. Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut. Hubungi via Email di audisifonds@gmail.com',
+    'Audisi. Instagram di @audisifoundation. Facebook di Audisi.  Linkedin di Advokasi untuk Disabilitas Inklusi (AUDISI)Indonesia. Youtube di Audisi Foundation.',
+  ];
   return (
     <div className={isDyslexicFont ? 'open-dyslexic' : ''}>
       <Header />
       {/* Hero Section */}
-      <div className="px-4 md:px-6 lg:px-6 lg:py-4 ">
+      <div className="px-4 md:px-6 lg:px-6 lg:py-4" onClick={() => speak(data[0])}>
         <div
           className="relative overflow-hidden flex flex-col items-center gap-3 rounded-xl"
           style={{
@@ -102,7 +120,7 @@ export default function Home() {
         </div>
       </div>
       {/* Mitra Kerja Sama */}
-      <div id="tentang-audisi-anchor" className="flex flex-col justify-center gap-4 py-6">
+      <div id="tentang-audisi-anchor" className="flex flex-col justify-center gap-4 py-6" onClick={() => speak(data[1])}>
         <p className="text-center px-8 md:px-12 md:py-6 md:text-xl lg:py-8">
           Telah berkolaborasi dan bekerja sama dengan <span className=" font-bold">lebih dari 10 mitra</span>
         </p>
@@ -123,8 +141,8 @@ export default function Home() {
       </div>
 
       {/* About Us */}
-      <div id="tentang-audisi" className="p-4 md:p-6 lg:p-8 flex flex-col gap-8">
-        <h2 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h2>
+      <div id="tentang-audisi" className="p-4 md:p-6 lg:p-8 flex flex-col gap-8" onClick={() => speak(data[2])}>
+        <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
         <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-1/2">
             <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
@@ -142,7 +160,7 @@ export default function Home() {
         <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-2/3">
             <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
-            <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+              <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
                 <Image src={Newspaper} alt="Newspaper Icon" className="text-4xl" />
               </RoundedButton>
               <p className="text-left text-lg">
@@ -156,8 +174,8 @@ export default function Home() {
       </div>
 
       {/* Latar Belakang */}
-      <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-8">
-        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h2>
+      <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-8" onClick={() => speak(data[3])}>
+        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h3>
         <div className="flex lg:flex-row flex-col gap-4">
           <Card hasImage={false}>
             <div className="flex flex-col space-y-6 md:space-y-8 lg:p-8">
@@ -176,8 +194,8 @@ export default function Home() {
       </div>
 
       {/* Visi dan Misi */}
-      <div className="p-4 flex flex-col gap-8 lg:p-8">
-        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h2>
+      <div className="p-4 flex flex-col gap-8 lg:p-8" onClick={() => speak(data[4])}>
+        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h3>
         <div className="grid md:grid-cols-2 md:grid-rows-3 md:gap-y-4 lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 gap-4">
           <Card hasImage={true} className="p-0 flex flex-col md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2 lg:w-full lg:h-full overflow-hidden">
             <Image src={VisiDesktop} alt="hero" className="rounded-ee-xl rounded-es-xl hidden lg:block w-full object-contain" layout="responsive" />
@@ -215,8 +233,8 @@ export default function Home() {
       </div>
 
       {/* Jenis Jenis Disabilitas */}
-      <div className="p-4 flex flex-col gap-y-4 md:p-6 md:gap-y-6">
-        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Terkait Disabilitas</h2>
+      <div className="p-4 flex flex-col gap-y-4 md:p-6 md:gap-y-6" onClick={() => speak(data[5])}>
+        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Terkait Disabilitas</h3>
 
         <p className="text-lg text-center">
           Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat.
@@ -262,8 +280,8 @@ export default function Home() {
       </div>
 
       {/* Event dan Dokumentasi */}
-      <div className="flex flex-col p-4 md:p-6 gap-8">
-        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h2>
+      <div className="flex flex-col p-4 md:p-6 gap-8" onClick={() => speak(data[6])}>
+        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h3>
 
         <div ref={scrollContainerRef} className="overflow-x-scroll flex flex-row gap-x-4">
           {Array(10)
@@ -280,7 +298,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between lg:p-8">
+      <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between lg:p-8" onClick={() => speak(data[7])}>
         <h6 className="text-sm md:text-base lg:font-medium">10 event terakhir yang diikuti</h6>
         <div className="flex gap-x-4 lg:gap-x-8">
           <RoundedButton id="back-arrow" className={`bg-white border-2 w-16 h-16 ${isBackDisabled ? 'border-gray-400' : 'border-red-950'}`} onClick={isBackDisabled ? undefined : scrollLeft}>
@@ -293,7 +311,7 @@ export default function Home() {
       </div>
 
       {/* Call to Action */}
-      <div className="p-4 lg:p-8">
+      <div className="p-4 lg:p-8" onClick={() => speak(data[8])}>
         <div
           className="relative rounded-xl"
           style={{
@@ -313,7 +331,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between lg:p-8 lg:gap-y-8">
+      <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between lg:p-8 lg:gap-y-8" onClick={() => speak(data[9])}>
         <Image src={Logo} alt="logo" className="w-48" />
         <div className="flex items-center justify-center gap-x-4 mt-4">
           <Link href={'https://www.instagram.com/audisifoundation/'}>
