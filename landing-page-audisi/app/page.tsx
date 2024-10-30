@@ -79,9 +79,9 @@ export default function Home() {
         >
           <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat w-full">
             <div className="px-4 pt-20 md:pt-32 flex flex-col items-center gap-4 md:gap-6">
-              <h3 className="lg:text-6xl lg:leading-normal text-4xl leading-snug text-black font-semibold text-center lg:px-20 px-4">
-                Bersama untuk Mewujudkan <span className="text-red-950 font-extrabold">Aksesibilitas</span> untuk Semua
-              </h3>
+              <h1 className="lg:text-6xl lg:leading-normal text-4xl leading-snug text-black font-semibold text-center lg:px-20 px-4">
+                Bersama untuk Mewujudkan <br className='md:block hidden'/><span className="text-red-950 font-extrabold">Aksesibilitas</span> untuk Semua
+              </h1>
               <Button className="bg-red-950 text-white p-4 md:p-6 w-fit font-medium">
                 <a href="#tentang-audisi-anchor" className="lg:text-2xl md:text-xl font-semibold">
                   Pelajari lebih lanjut
@@ -121,7 +121,7 @@ export default function Home() {
 
       {/* About Us */}
       <div id="tentang-audisi" className="p-4 md:p-6 lg:p-8 flex flex-col gap-8">
-        <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
+        <h2 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h2>
         <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-1/2">
             <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
@@ -154,7 +154,7 @@ export default function Home() {
 
       {/* Latar Belakang */}
       <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-8">
-        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h3>
+        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h2>
         <div className="flex lg:flex-row flex-col gap-4">
           <Card hasImage={false}>
             <div className="flex flex-col space-y-6 md:space-y-8 lg:p-8">
@@ -174,7 +174,7 @@ export default function Home() {
 
       {/* Visi dan Misi */}
       <div className="p-4 flex flex-col gap-8 lg:p-8">
-        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h3>
+        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h2>
         <div className="grid md:grid-cols-2 md:grid-rows-3 md:gap-y-4 lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 gap-4">
           <Card hasImage={true} className="p-0 flex flex-col md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2 lg:w-full lg:h-full overflow-hidden">
             <Image src={VisiDesktop} alt="hero" className="rounded-ee-xl rounded-es-xl hidden lg:block w-full object-contain" layout="responsive" />
@@ -213,7 +213,7 @@ export default function Home() {
 
       {/* Jenis Jenis Disabilitas */}
       <div className="p-4 flex flex-col gap-y-4 md:p-6 md:gap-y-6">
-        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Terkait Disabilitas</h3>
+        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Terkait Disabilitas</h2>
 
         <p className="text-lg text-center">
           Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat.
@@ -260,7 +260,7 @@ export default function Home() {
 
       {/* Event dan Dokumentasi */}
       <div className="flex flex-col p-4 md:p-6 gap-8">
-        <h3 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h3>
+        <h2 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h2>
 
         <div ref={scrollContainerRef} className="overflow-x-scroll flex flex-row gap-x-4">
           {Array(10)
@@ -299,8 +299,8 @@ export default function Home() {
         >
           <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
             <div className="flex flex-col justify-center items-center text-white rounded-xl gap-y-4">
-              <h3 className="text-xl text-black font-semibold text-center px-4 md:text-3xl md:px-20">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h3>
-              <p className=" text-lg text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>
+              <h2 className="text-2xl text-black font-semibold text-center px-4 md:text-3xl md:px-20">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h2>
+              <p className=" text-lg text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. <br className='lg:block hidden'/> Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>
               <a href="mailto:audisifonds@gmail.com" className="bg-red-950 text-white p-4 mt-4 font-medium rounded-lg">
                 <p>Hubungi via Email</p>
               </a>

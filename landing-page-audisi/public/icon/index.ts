@@ -15,4 +15,8 @@ import Facebook from './facebook.svg';
 import LinkedIn from './linkedin.svg';
 import Youtube from './youtube.svg';
 
-export { ChevronDown, SettingsAccessibility, Campaign, Newspaper, Disabled, Brain, MoodPuzzled, SensorOccupied, ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Instagram, Facebook, LinkedIn, Youtube };
+import Animation from './animation.svg';
+import TextFields from './text-fields.svg';
+import TextToSpeech from './text-to-speech.svg';
+
+export { ChevronDown, SettingsAccessibility, Campaign, Newspaper, Disabled, Brain, MoodPuzzled, SensorOccupied, ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Instagram, Facebook, LinkedIn, Youtube, Animation, TextFields, TextToSpeech };
