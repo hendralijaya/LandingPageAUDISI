@@ -1,3 +1,4 @@
-import Visi from './visi.png';
+import VisiMobile from './visi-mobile.png';
+import VisiTab from './visi-tab.png';
 
-export { Visi };
+export { VisiMobile, VisiTab };
