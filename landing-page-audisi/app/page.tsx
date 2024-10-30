@@ -190,8 +190,8 @@ export default function Home() {
             <div className="flex justify-between items-center">
               <div className="flex items-center">
                 <Image src={TextFields} alt="Dyslexia-Friendly Text Icon" className="w-8 text-red-950" />
-                <p className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
-                  Teks Ramah Disabilitas
+                <p className="block px-4 py-2 text-sm text-gray-700 open-dyslexic" role="menuitem">
+                  Teks Ramah Dyslexia
                 </p>
               </div>
               <ToggleSwitch isChecked={isDyslexia} onToggle={() => setIsDyslexia(!isDyslexia)} />
