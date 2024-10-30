@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '@/public/icon';
 import Card from '@/components/Card';
 import RoundedButton from '@/components/RoundedButton';
-import { VisiMobile, VisiTab } from '@/public/img/visi-misi';
+import { VisiMobile, VisiTab, VisiDesktop } from '@/public/img/visi-misi';
 import HighlightText from '@/components/HighlightText';
 import { Fisik, Intelektual, Mental, Sensorik } from '@/public/img/jenis-disabilitas';
 import HighlightIcon from '@/components/HighlightIcon';
@@ -70,20 +70,20 @@ export default function Home() {
     <div className="">
       <Header />
       {/* Hero Section */}
-      <div className="px-4 md:px-6 lg:p-8">
+      <div className="px-4 md:px-6 lg:px-6 lg:py-4 ">
         <div
           className="relative overflow-hidden flex flex-col items-center gap-3 rounded-xl"
           style={{
             backgroundImage: 'linear-gradient(180deg, #FEF9F9 10%, #DC3E42 100%)', // Adjust the colors and percentages as needed
           }}
         >
-          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tab.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat w-full">
+          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat w-full">
             <div className="px-4 pt-20 md:pt-32 flex flex-col items-center gap-4 md:gap-6">
-              <h3 className="text-4xl leading-snug text-black font-semibold text-center px-4">
+              <h3 className="lg:text-6xl lg:leading-normal text-4xl leading-snug text-black font-semibold text-center lg:px-20 px-4">
                 Bersama untuk Mewujudkan <span className="text-red-950 font-extrabold">Aksesibilitas</span> untuk Semua
               </h3>
               <Button className="bg-red-950 text-white p-4 md:p-6 w-fit font-medium">
-                <a href="#tentang-audisi-anchor" className="md:text-xl font-semibold">
+                <a href="#tentang-audisi-anchor" className="lg:text-2xl md:text-xl font-semibold">
                   Pelajari lebih lanjut
                 </a>
               </Button>
@@ -99,34 +99,34 @@ export default function Home() {
         </div>
       </div>
       {/* Mitra Kerja Sama */}
-      <div id="tentang-audisi-anchor" className="flex flex-col justify-center">
-        <p className="text-center px-8 py-4 md:px-12 md:py-6 md:text-xl lg:py-8">
+      <div id="tentang-audisi-anchor" className="flex flex-col justify-center gap-4 py-6">
+        <p className="text-center px-8 md:px-12 md:py-6 md:text-xl lg:py-8">
           Telah berkolaborasi dan bekerja sama dengan <span className=" font-bold">lebih dari 10 mitra</span>
         </p>
         <div className="p-4 flex flex-wrap gap-4 md:gap-8 lg:gap-16 justify-center md:p-6 lg:p-8">
-          <Image src={One} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Two} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Three} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Four} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Five} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Six} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Seven} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Eight} alt="mitra" className="object-cover h-8 md:h-16 lg:h-24 w-auto" />
-          <Image src={Nine} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Ten} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
-          <Image src={Eleven} alt="mitra" className="object-cover h-8 md:h-16 lg:h-24 w-auto" />
-          <Image src={Twelve} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={One} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Two} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Three} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Four} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Five} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Six} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Seven} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Eight} alt="mitra" className="object-cover h-10 md:h-16 lg:h-24 w-auto" />
+          <Image src={Nine} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Ten} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
+          <Image src={Eleven} alt="mitra" className="object-cover h-10 md:h-16 lg:h-24 w-auto" />
+          <Image src={Twelve} alt="mitra" className="object-cover h-10 md:h-16 lg:h-32 w-auto" />
         </div>
       </div>
 
       {/* About Us */}
-      <div id="tentang-audisi" className="p-4 space-y-4 md:p-6 md:space-y-6 lg:p-8 lg:space-y-8">
+      <div id="tentang-audisi" className="p-4 md:p-6 lg:p-8 flex flex-col gap-8">
         <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
         <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-1/2">
-            <div className="space-y-4 md:flex md:space-y-0 md:gap-x-6 lg:flex-col lg:gap-y-8 lg:p-8">
-              <RoundedButton className="bg-red-950 hover:bg-red-500 md:w-36 md:h-16 rounded-full lg:w-16">
-                <Image src={Campaign} alt="chevron-down" className="w-8 h-8 md:w-10 md:h-10" />
+            <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
+              <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+                <Image src={Campaign} alt="Campaign Icon" className="text-4xl" />
               </RoundedButton>
               <p className="text-left text-lg">
                 Advokasi untuk Disabilitas Inklusi (AUDISI) Indonesia adalah non-profit organization yang berdiri sejak tahun 2017 yang aktif dalam <span className="font-semibold">mengkampanyekan pentingnya inklusi disabilitas</span> ke
@@ -138,9 +138,9 @@ export default function Home() {
         </div>
         <div className="lg:flex lg:gap-x-2">
           <Card hasImage={false} className="lg:w-2/3">
-            <div className="space-y-4 md:flex md:space-y-0 md:gap-x-6 lg:flex-col lg:gap-y-8 lg:p-8">
-              <RoundedButton className="bg-red-950 hover:bg-red-500 md:w-56 md:h-16 rounded-full lg:w-16">
-                <Image src={Newspaper} alt="chevron-down" className="w-8 h-8 md:w-10 md:h-10" />
+            <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
+            <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+                <Image src={Newspaper} alt="Newspaper Icon" className="text-4xl" />
               </RoundedButton>
               <p className="text-left text-lg">
                 AUDISI Foundation bertujuan untuk memberikan sosialisasi dan menerapkan <span className="font-semibold">hak-hak penyandang disabilitas sesuai Undang-Undang Nomor 8 Tahun 2016.</span> Undang-undang ini menjamin perlindungan,
@@ -153,9 +153,9 @@ export default function Home() {
       </div>
 
       {/* Latar Belakang */}
-      <div className="p-4 space-y-4 md:p-6 md:space-y-6 lg:p-8">
+      <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-8">
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h3>
-        <div className="lg:flex lg:flex-row lg:gap-x-4">
+        <div className="flex lg:flex-row flex-col gap-4">
           <Card hasImage={false}>
             <div className="flex flex-col space-y-6 md:space-y-8 lg:p-8">
               <p className="text-lg">
@@ -173,36 +173,37 @@ export default function Home() {
       </div>
 
       {/* Visi dan Misi */}
-      <div className="p-4 flex flex-col gap-y-4 lg:p-8">
+      <div className="p-4 flex flex-col gap-8 lg:p-8">
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Visi dan Misi</h3>
-        <div className="md:grid md:grid-cols-2 md:grid-rows-3 md:gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:gap-4">
-          <Card hasImage={true} className="p-0 flex flex-col md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2 lg:w-full lg:h-full">
+        <div className="grid md:grid-cols-2 md:grid-rows-3 md:gap-y-4 lg:grid-cols-3 lg:grid-rows-2 grid-cols-1 gap-4">
+          <Card hasImage={true} className="p-0 flex flex-col md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2 lg:w-full lg:h-full overflow-hidden">
+            <Image src={VisiDesktop} alt="hero" className="rounded-ee-xl rounded-es-xl hidden lg:block w-full object-contain" layout="responsive" />
             <Image src={VisiMobile} alt="hero" className="rounded-t-xl md:hidden object-contain w-full" layout="responsive" width={500} height={300} />
-            <Image src={VisiTab} alt="hero" className="hidden md:block md:rounded-t-xl object-contain w-full lg:h-96" layout="responsive" width={800} height={400} />
+            <Image src={VisiTab} alt="hero" className="hidden md:block lg:hidden md:rounded-t-xl object-contain w-full lg:h-96" layout="responsive" width={800} height={400} />
             <div className="flex flex-col px-4 gap-y-2">
               <HighlightText text="Visi" className="-mt-8" />
               <p className="text-lg">Melakukan advokasi berdasar pada kajian untuk mewujudkan masyarakat inklusif yang menghormati, melindungi, dan memenuhi hak penyandang disabilitas dalam segala aspek kehidupan.</p>
             </div>
           </Card>
-          <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2">
+          <Card hasImage={false} className="p-4 lg:py-8 gap-y-2">
             <HighlightText text="Misi 1" className="" />
             <h4 className="text-left text-2xl font-semibold md:text-xl">Kajian Kebijakan dan Inklusi Sosial Terbaru</h4>
             <p className="text-lg">Melakukan kajian tentang kebijakan dan (inklusi) sosial terkini sebagai landasan untuk mewujudkan Masyarakat Inklusi Disabilitas.</p>
           </Card>
 
-          <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2 md:ml-auto">
+          <Card hasImage={false} className="p-4 lg:py-8 gap-2">
             <HighlightText text="Misi 2" className="" />
             <h4 className="text-left text-2xl font-semibold md:text-xl">Advokasi Hak Penyandang Disabilitas</h4>
             <p className="text-lg">Melakukan advokasi untuk Penghormatan, Perlindungan, dan Pemenuhan Hak penyandang disabilitas di segala bidang kehidupan.</p>
           </Card>
 
-          <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2">
+          <Card hasImage={false} className="p-4 lg:py-8 gap-2">
             <HighlightText text="Misi 3" className="" />
             <h4 className="text-left text-2xl font-semibold md:text-xl">Pemberdayaan Penyandang Disabilitas</h4>
             <p className="text-lg">Melakukan pemberdayaan penyandang disabilitas sebagai pelaku pembangunan yang mandiri, produktif, dan berintegritas.</p>
           </Card>
 
-          <Card hasImage={false} className="p-4 py-8 flex flex-col gap-y-2 md:ml-auto">
+          <Card hasImage={false} className="p-4 lg:py-8 gap-2 md:ml-auto">
             <HighlightText text="Misi 4" className="" />
             <h4 className="text-left text-2xl font-semibold md:text-xl">Pengembangan Jaringan dan Kerja Sama</h4>
             <p className="text-lg">Mengembangkan jaringan dan kerjasama dengan berbagai pihak untuk mewujudkan masyarakat inklusif bagi penyandang disabilitas.</p>
@@ -218,7 +219,7 @@ export default function Home() {
           Penyandang disabilitas adalah individu dengan keterbatasan fisik, intelektual, mental, atau sensorik yang bersifat jangka panjang, yang menghadapi hambatan dalam berpartisipasi penuh dan setara dalam masyarakat.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:mb-32 lg:flex">
+        <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4 md:mb-32">
           <Card hasImage={true} className="p-0 flex flex-col">
             <Image src={Fisik} alt="fisik" className="rounded-xl w-full" />
             <div className="flex flex-col px-4 gap-y-2">
@@ -258,7 +259,7 @@ export default function Home() {
       </div>
 
       {/* Event dan Dokumentasi */}
-      <div className="flex flex-col p-4 md:p-6 md:gap-y-6">
+      <div className="flex flex-col p-4 md:p-6 gap-8">
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h3>
 
         <div ref={scrollContainerRef} className="overflow-x-scroll flex flex-row gap-x-4">
@@ -291,12 +292,12 @@ export default function Home() {
       {/* Call to Action */}
       <div className="p-4 lg:p-8">
         <div
-          className="relative rounded-lg"
+          className="relative rounded-xl"
           style={{
-            backgroundImage: 'linear-gradient(180deg, #FEF9F9 0%, #EB8F89 100%)', // Adjust the colors and percentages as needed
+            backgroundImage: 'linear-gradient(180deg, #FEF9F9 10%, #EB8F89 100%)', // Adjust the colors and percentages as needed
           }}
         >
-          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
+          <div className="bg-[url('@/public/img/pattern/pattern-mobile.png')] md:bg-[url('@/public/img/pattern/pattern-tablet.png')] lg:bg-[url('@/public/img/pattern/pattern-desktop.png')] bg-cover bg-no-repeat px-6 pt-10 pb-10 ">
             <div className="flex flex-col justify-center items-center text-white rounded-xl gap-y-4">
               <h3 className="text-xl text-black font-semibold text-center px-4 md:text-3xl md:px-20">Berkolaborasi untuk Masa Depan yang Lebih Inklusif</h3>
               <p className=" text-lg text-black text-center px-4">Mari bersama-sama membangun dunia di mana setiap orang merasa dihargai dan dilibatkan. Hubungi kami melalui email untuk berdiskusi lebih lanjut</p>

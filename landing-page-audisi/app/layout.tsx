@@ -2,17 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 const inter = localFont({
   src: "./fonts/Inter.woff",
   variable: "--font-inter",
@@ -23,6 +12,16 @@ const interItalic = localFont({
   src: "./fonts/Inter-Italic.woff",
   variable: "--font-inter-italic",
   weight: "100 200 300 400 500 600 700 800 900",
+});
+
+const openDyslexic = localFont({
+  src: [
+    { path: "./fonts/OpenDyslexic-Regular.woff", weight: "400" },
+    { path: "./fonts/OpenDyslexic-Italic.woff", weight: "400", style: "italic" },
+    { path: "./fonts/OpenDyslexic-Bold.woff", weight: "700" },
+    { path: "./fonts/OpenDyslexic-Bold-Italic.woff", weight: "700", style: "italic" },
+  ],
+  variable: "--font-open-dyslexic",
 });
 
 export const metadata: Metadata = {
