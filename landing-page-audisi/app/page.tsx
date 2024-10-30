@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/Button';
-import { Logo, LatarBelakangMobile, LatarBelakangTab, HeroMobile, HeroTab, HeroDesktop, AboutActivityDesktop, AboutSidangDesktop } from '@/public/img';
+import { Logo, LatarBelakang, HeroMobile, HeroTab, HeroDesktop, AboutActivityDesktop, AboutSidangDesktop } from '@/public/img';
 import Image from 'next/image';
 import { ArrowBack, ArrowBackDisabled, ArrowFoward, ArrowFowardDisabled, Brain, Campaign, Disabled, Facebook, Instagram, LinkedIn, MoodPuzzled, Newspaper, SensorOccupied, Youtube } from '@/public/icon';
 import Card from '@/components/Card';
@@ -143,54 +143,66 @@ export default function Home() {
       {/* About Us */}
       <div id="tentang-audisi" className="p-4 md:p-6 lg:p-8 flex flex-col gap-8" onClick={() => speak(data[2])}>
         <h3 className="text-center text-2xl font-semibold lg:text-3xl">Tentang AUDISI Foundation</h3>
-        <div className="lg:flex lg:gap-x-2">
-          <Card hasImage={false} className="lg:w-1/2">
-            <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
-              <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
-                <Image src={Campaign} alt="Campaign Icon" className="text-4xl" />
-              </RoundedButton>
-              <p className="text-left text-lg">
-                Advokasi untuk Disabilitas Inklusi (AUDISI) Indonesia adalah non-profit organization yang berdiri sejak tahun 2017 yang aktif dalam <span className="font-semibold">mengkampanyekan pentingnya inklusi disabilitas</span> ke
-                masyarakat di seluruh Indonesia.
-              </p>
+        <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-12 lg:col-span-5 lg:flex lg:gap-x-2">
+              <Card hasImage={false} className="">
+                <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
+                  <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+                    <Image src={Campaign} alt="Campaign Icon" className="text-4xl" />
+                  </RoundedButton>
+                  <p className="text-left text-lg">
+                    Advokasi untuk Disabilitas Inklusi (AUDISI) Indonesia adalah non-profit organization yang berdiri sejak tahun 2017 yang aktif dalam <span className="font-semibold">mengkampanyekan pentingnya inklusi disabilitas</span> ke
+                    masyarakat di seluruh Indonesia.
+                  </p>
+                </div>
+              </Card>
             </div>
-          </Card>
-          <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full lg:w-1/2" layout="cover" />
-        </div>
-        <div className="lg:flex lg:gap-x-2">
-          <Card hasImage={false} className="lg:w-2/3">
-            <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
-              <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
-                <Image src={Newspaper} alt="Newspaper Icon" className="text-4xl" />
-              </RoundedButton>
-              <p className="text-left text-lg">
-                AUDISI Foundation bertujuan untuk memberikan sosialisasi dan menerapkan <span className="font-semibold">hak-hak penyandang disabilitas sesuai Undang-Undang Nomor 8 Tahun 2016.</span> Undang-undang ini menjamin perlindungan,
-                penghormatan, dan pemenuhan hak-hak penyandang disabilitas dalam berbagai aspek kehidupan, termasuk kesehatan, pendidikan, pekerjaan, dan aksesibilitas.
-              </p>
+            <div className="col-span-12 lg:col-span-7 rounded-lg overflow-hidden">
+              <Image src={AboutActivityDesktop} alt="kegiatan-audisi" className="hidden lg:rounded-xl md:block md:w-full object-fill" layout="cover" />
             </div>
-          </Card>
-          <Image src={AboutSidangDesktop} alt="sidang-audisi" className="hidden lg:rounded-xl md:block md:w-full lg:w-1/3" layout="cover" />
+            <div className="col-span-12 lg:col-span-7 lg:flex lg:gap-x-2">
+              <Card hasImage={false} className="">
+                <div className="flex md:gap-6 lg:flex-col lg:p-8 flex-col gap-4">
+                  <RoundedButton className="flex justify-center items-center md:w-16 md:h-16 rounded-full w-14 h-14 bg-red-950 hover:bg-red-500">
+                    <Image src={Newspaper} alt="Newspaper Icon" className="text-4xl" />
+                  </RoundedButton>
+                  <p className="text-left text-lg">
+                    AUDISI Foundation bertujuan untuk memberikan sosialisasi dan menerapkan <span className="font-semibold">hak-hak penyandang disabilitas sesuai Undang-Undang Nomor 8 Tahun 2016.</span> Undang-undang ini menjamin perlindungan,
+                    penghormatan, dan pemenuhan hak-hak penyandang disabilitas dalam berbagai aspek kehidupan, termasuk kesehatan, pendidikan, pekerjaan, dan aksesibilitas.
+                  </p>
+                </div>
+              </Card>
+            </div>
+            <div className="col-span-12 lg:col-span-5 rounded-lg overflow-hidden">
+              <Image src={AboutSidangDesktop} alt="sidang-audisi" className="hidden lg:rounded-xl md:block md:w-full" layout="cover" />
+            </div>
+          </div>
         </div>
-      </div>
+        
 
       {/* Latar Belakang */}
       <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-8" onClick={() => speak(data[3])}>
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Latar Belakang</h3>
-        <div className="flex lg:flex-row flex-col gap-4">
-          <Card hasImage={false}>
-            <div className="flex flex-col space-y-6 md:space-y-8 lg:p-8">
-              <p className="text-lg">
-                Konvensi Hak-Hak Penyandang Disabilitas telah diratifikasi oleh Indonesia pada tahun 2011. <span className="font-semibold">Pada tahun 2016</span>, Indonesia berhasil memiliki peraturan daerah sendiri yang{' '}
-                <span className="font-semibold">menghormati, menjamin, dan memenuhi hak-hak penyandang disabilitas.</span>
-              </p>
-              <p className="text-lg">
-                AUDISI Foundation berupaya mengadvokasi agar peraturan tersebut dapat dilaksanakan dengan baik untuk <span className="font-semibold">mencapai masyarakat yang inklusif.</span>
-              </p>
-            </div>
-          </Card>
-          <Image src={LatarBelakangMobile} alt="latar-belakang" className="rounded-xl md:hidden object-contain w-full" layout="responsive" />
-          <Image src={LatarBelakangTab} alt="latar-belakang" className="hidden md:block object-cover md:rounded-xl w-full lg:h-full" layout="responsive" />
+        <div className="grid grid-cols-12 gap-4">
+          <div className="flex lg:flex-row flex-col gap-4 lg:col-span-6 col-span-12">
+            <Card hasImage={false}>
+              <div className="flex flex-col space-y-6 md:space-y-8 lg:p-8">
+                <p className="text-lg">
+                  Konvensi Hak-Hak Penyandang Disabilitas telah diratifikasi oleh Indonesia pada tahun 2011. <span className="font-semibold">Pada tahun 2016</span>, Indonesia berhasil memiliki peraturan daerah sendiri yang{' '}
+                  <span className="font-semibold">menghormati, menjamin, dan memenuhi hak-hak penyandang disabilitas.</span>
+                </p>
+                <p className="text-lg">
+                  AUDISI Foundation berupaya mengadvokasi agar peraturan tersebut dapat dilaksanakan dengan baik untuk <span className="font-semibold">mencapai masyarakat yang inklusif.</span>
+                </p>
+              </div>
+            </Card>
+          </div>
+          <div className="lg:col-span-6 col-span-12">
+            <Image src={LatarBelakang} alt="latar-belakang" className="rounded-lg object-fill w-full"/>
+          </div>
         </div>
+
+        
       </div>
 
       {/* Visi dan Misi */}

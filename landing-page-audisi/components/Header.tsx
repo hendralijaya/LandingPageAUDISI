@@ -22,8 +22,8 @@ export default function Header() {
   }, []);
 
   return (
-    <div className={`px-6 md:px-10 py-4 md:py-6 fixed top-0 left-0 z-10 w-full flex justify-between transition-colors duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
-      <Image src={Logo} alt="logo" className="max-w-[10rem] md:max-w-[12rem] p-2 md:p-4" />
+    <div className={`px-6 md:px-10 py-2 md:py-4 fixed top-0 left-0 z-10 w-full flex justify-between items-center transition-colors duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+      <Image src={Logo} alt="logo" className="max-w-[8rem] md:max-w-[10rem] p-2 md:p-4" />
       <DropdownButton buttonLabel="Options">
         <div className="p-3">
           <div className="flex justify-between items-center">
