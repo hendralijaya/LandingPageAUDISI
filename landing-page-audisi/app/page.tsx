@@ -14,6 +14,7 @@ import HighlightIcon from '@/components/HighlightIcon';
 import Header from '@/components/Header';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '@/public/img/mitra';
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -89,8 +90,8 @@ export default function Home() {
             </div>
 
             <Image src={HeroMobile} alt="hero" className="rounded-ee-xl rounded-es-xl md:hidden w-full object-contain" layout="responsive" />
-            <Image src={HeroTab} alt="hero" className="rounded-ee-xl rounded-es-xl hidden md:block w-full  object-contain" layout="responsive" />
-            {/* <Image src={HeroDesktop} alt="hero" className="rounded-ee-xl rounded-es-xl hidden lg:block w-full object-contain" layout="responsive" /> */}
+            <Image src={HeroTab} alt="hero" className="rounded-ee-xl rounded-es-xl hidden md:block lg:hidden w-full  object-contain" layout="responsive" />
+            <Image src={HeroDesktop} alt="hero" className="rounded-ee-xl rounded-es-xl hidden lg:block w-full object-contain" layout="responsive" />
           </div>
           {/* <div className="absolute flex flex-col justify-center items-center text-white rounded-xl gap-y-4 z-[-1]">
               <Image src={BackgroundMobile} alt="background-mobile" className="rounded-xl object-cover w-full h-full" />
@@ -98,10 +99,24 @@ export default function Home() {
         </div>
       </div>
       {/* Mitra Kerja Sama */}
-      <div id="tentang-audisi-anchor" className="flex justify-center">
-        <p className="text-center px-8 py-4 md:px-12 md:py-6 md:text-xl">
+      <div id="tentang-audisi-anchor" className="flex flex-col justify-center">
+        <p className="text-center px-8 py-4 md:px-12 md:py-6 md:text-xl lg:py-8">
           Telah berkolaborasi dan bekerja sama dengan <span className=" font-bold">lebih dari 10 mitra</span>
         </p>
+        <div className="p-4 flex flex-wrap gap-4 md:gap-8 lg:gap-16 justify-center md:p-6 lg:p-8">
+          <Image src={One} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Two} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Three} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Four} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Five} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Six} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Seven} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Eight} alt="mitra" className="object-cover h-8 md:h-16 lg:h-24 w-auto" />
+          <Image src={Nine} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Ten} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+          <Image src={Eleven} alt="mitra" className="object-cover h-8 md:h-16 lg:h-24 w-auto" />
+          <Image src={Twelve} alt="mitra" className="object-cover h-8 md:h-16 lg:h-32 w-auto" />
+        </div>
       </div>
 
       {/* About Us */}
@@ -294,7 +309,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between">
+      <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between lg:p-8 lg:gap-y-8">
         <Image src={Logo} alt="logo" className="w-48" />
         <div className="flex items-center justify-center gap-x-4 mt-4">
           <Link href={'https://www.instagram.com/audisifoundation/'}>
@@ -312,7 +327,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="p-4 flex justify-center border-t md:p-6">
+      <div className="p-4 flex justify-center border-t md:p-6 lg:p-8">
         <p className="text-xs text-gray-600 text-center md:text-sm">© Copyright 2024 AUDISI Foundation. All Rights Reserved.</p>
       </div>
     </div>
