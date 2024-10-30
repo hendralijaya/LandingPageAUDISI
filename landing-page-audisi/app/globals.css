@@ -12,3 +12,7 @@ body {
   background: var(--background);
   font-family: Inter, sans-serif;
 }
+
+.open-dyslexic {
+  font-family: var(--font-open-dyslexic);
+}

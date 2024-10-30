@@ -5,9 +5,11 @@ import { Logo } from '@/public/img';
 import { Animation, TextFields, TextToSpeech } from '@/public/icon'; // Adjust the path as needed
 import DropdownButton from "./DropdownButton";
 import ToggleSwitch from "./ToggleSwitch";
+import { useFontContext } from '../app/FontContext';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { isDyslexicFont, setIsDyslexicFont } = useFontContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +23,7 @@ export default function Header() {
 
   return (
     <div className={`px-6 md:px-10 py-4 md:py-6 fixed top-0 left-0 z-10 w-full flex justify-between transition-colors duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
-      <Image src={Logo} alt="logo" className="max-w-[8rem] md:max-w-[12rem] p-2 md:p-4" />
+      <Image src={Logo} alt="logo" className="max-w-[10rem] md:max-w-[12rem] p-2 md:p-4" />
       <DropdownButton buttonLabel="Options">
         <div className="p-3">
           <div className="flex justify-between items-center">
@@ -31,7 +33,10 @@ export default function Header() {
                 Text to Speech
               </p>
             </div>
-            <ToggleSwitch />
+            <ToggleSwitch 
+              checked={false} 
+              onChange={() => {}} 
+            />
           </div>
         </div>
 
@@ -39,11 +44,14 @@ export default function Header() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Image src={TextFields} alt="Ikon Ubah Teks Ramah Dyslexia" className="w-8 text-red-950" />
-              <p className="block px-4 py-2 text-sm text-gray-700" role="menuitem">
+              <p className="block px-4 py-2 text-sm text-gray-700 open-dyslexic" role="menuitem">
                 Teks Ramah Dyslexia
               </p>
             </div>
-            <ToggleSwitch />
+            <ToggleSwitch 
+              checked={isDyslexicFont} 
+              onChange={() => setIsDyslexicFont(prev => !prev)} 
+            />
           </div>
         </div>
 
@@ -55,7 +63,10 @@ export default function Header() {
                 Kurangi Animasi
               </p>
             </div>
-            <ToggleSwitch />
+            <ToggleSwitch 
+              checked={false} 
+              onChange={() => {}} 
+            />
           </div>
         </div>
       

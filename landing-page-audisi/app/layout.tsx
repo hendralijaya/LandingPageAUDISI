@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { FontProvider } from './FontContext';
 
 const inter = localFont({
   src: "./fonts/Inter.woff",
@@ -35,12 +36,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${interItalic.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <FontProvider>
+      <html lang="en">
+        <body className={`${inter.variable} ${interItalic.variable} ${openDyslexic.variable} antialiased`}>
+          {children}
+        </body>
+      </html>
+    </FontProvider>
   );
 }

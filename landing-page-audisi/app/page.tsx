@@ -16,10 +16,13 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '@/public/img/mitra';
 
+import { useFontContext } from './FontContext';
+
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isBackDisabled, setIsBackDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
+  const { isDyslexicFont } = useFontContext();
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
@@ -67,7 +70,7 @@ export default function Home() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
   return (
-    <div className="">
+    <div className={isDyslexicFont ? 'open-dyslexic' : ''}>
       <Header />
       {/* Hero Section */}
       <div className="px-4 md:px-6 lg:px-6 lg:py-4 ">
