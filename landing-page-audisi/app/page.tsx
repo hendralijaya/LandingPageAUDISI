@@ -16,7 +16,18 @@ import Link from 'next/link';
 import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '../public/img/mitra';
 import DropdownButton from '../components/DropdownButton';
 import ToggleSwitch from '../components/ToggleSwitch';
-import { DeklarasiPemiluBawaslu, DiskusiKomnasHam, HariKesehatanJiwa2022, JaksaSahabatMasyarakat, PerumusanBanten2019, PodcastKejaksaanRI, SeminarMKG76, SosialisasiBandara, TandaTanganRKPDBanten, WorkshopPioneer } from '@/public/img/event';
+import {
+  DeklarasiPemiluBawaslu,
+  DiskusiKomnasHam,
+  HariKesehatanJiwa2022,
+  JaksaSahabatMasyarakat,
+  PerumusanBanten2019,
+  PodcastKejaksaanRI,
+  SeminarMKG76,
+  SosialisasiBandara,
+  TandaTanganRKPDBanten,
+  WorkshopPioneer,
+} from '../public/img/event';
 
 export default function Home() {
   const eventData = [
@@ -404,7 +415,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between lg:p-8" onClick={() => speak(data[7])}>
+      <div className="flex p-4 border-t gap-x-4 items-center w-full justify-between lg:p-8">
         <h6 className="text-sm md:text-base lg:font-medium">10 event terakhir yang diikuti</h6>
         <div className="flex gap-x-4 lg:gap-x-8">
           <RoundedButton id="back-arrow" className={`bg-white border-2 w-16 h-16 ${isBackDisabled ? 'border-gray-400' : 'border-red-950'}`} onClick={isBackDisabled ? undefined : scrollLeft}>
@@ -417,7 +428,7 @@ export default function Home() {
       </div>
 
       {/* Call to Action */}
-      <div className="p-4 lg:p-8" onClick={() => speak(data[8])}>
+      <div className="p-4 lg:p-8" onClick={() => speak(data[7])}>
         <div
           className="relative rounded-xl"
           style={{
@@ -439,7 +450,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between lg:p-8 lg:gap-y-8" onClick={() => speak(data[9])}>
+      <div className="p-4 flex flex-col items-center gap-y-4 md:p-6 md:gap-y-6 md:flex-row md:justify-between lg:p-8 lg:gap-y-8" onClick={() => speak(data[8])}>
         <Image src={Logo} alt="logo" className="w-48" />
         <div className="flex items-center justify-center gap-x-4 mt-4">
           <Link href={'https://www.instagram.com/audisifoundation/'}>
