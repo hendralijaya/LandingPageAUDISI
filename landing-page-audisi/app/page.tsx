@@ -16,8 +16,62 @@ import Link from 'next/link';
 import { Eight, Eleven, Five, Four, Nine, One, Seven, Six, Ten, Three, Twelve, Two } from '../public/img/mitra';
 import DropdownButton from '../components/DropdownButton';
 import ToggleSwitch from '../components/ToggleSwitch';
+import { DeklarasiPemiluBawaslu, DiskusiKomnasHam, HariKesehatanJiwa2022, JaksaSahabatMasyarakat, PerumusanBanten2019, PodcastKejaksaanRI, SeminarMKG76, SosialisasiBandara, TandaTanganRKPDBanten, WorkshopPioneer } from '@/public/img/event';
 
 export default function Home() {
+  const eventData = [
+    {
+      image: DiskusiKomnasHam,
+      title: 'Diskusi dengan Komnas Disabilitas',
+      date: '14 Oktober 2024',
+    },
+    {
+      image: SosialisasiBandara,
+      title: 'Sosialisasi Peraturan Terkait Pelayanan Penumpang Berkebutuhan Khusus di Bandar Udara',
+      date: '31 Mei 2024',
+    },
+    {
+      image: JaksaSahabatMasyarakat,
+      title: 'Jaksa Sahabat Masyarakat oleh Komisi Informasi Pusat',
+      date: '23 Mei 2024',
+    },
+    {
+      image: SeminarMKG76,
+      title: 'Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76',
+      date: '20 Juli 2023',
+    },
+    {
+      image: PodcastKejaksaanRI,
+      title: 'Podcast Kejaksaan RI dengan AUDISI Foundation',
+      date: '18 Juli 2023',
+    },
+    {
+      image: DeklarasiPemiluBawaslu,
+      title: 'Deklarasi Pemilu Ramah Disabilitas oleh Bawaslu',
+      date: '11 Juli 2023',
+    },
+    {
+      image: PerumusanBanten2019,
+      title: 'Perumusan Peraturan Daerah Disabilitas Banten No.14 tahun 2019',
+      date: '31 Mei 2023',
+    },
+    {
+      image: TandaTanganRKPDBanten,
+      title: 'Penandatanganan RKPD (Rencana Kerja Pemerintah Daerah) Provinsi Banten',
+      date: '15 Desember 2022',
+    },
+    {
+      image: HariKesehatanJiwa2022,
+      title: 'Peringatan Hari Kesehatan Jiwa Internasional 2022',
+      date: '6 Oktober 2022',
+    },
+    {
+      image: WorkshopPioneer,
+      title: 'Workshop Pembelajaran Hasil Pelokalan Reapon Kemanusiaan (PIONEER)',
+      date: '19 September 2022',
+    },
+  ];
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isBackDisabled, setIsBackDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
@@ -338,17 +392,15 @@ export default function Home() {
         <h3 className="text-center text-2xl font-semibold lg:text-4xl">Event dan Dokumentasi</h3>
 
         <div ref={scrollContainerRef} className="overflow-x-scroll flex flex-row gap-x-4">
-          {Array(10)
-            .fill(null)
-            .map((_, index) => (
-              <Card key={index} hasImage={true} className="p-0 w-72 shrink-0">
-                <Image src={Mental} alt="seminar-hari-meteorologi" className="rounded-xl h-64" />
-                <div className="p-4">
-                  <h5 className="font-semibold">Seminar Hari Meteorologi, Klimatologi, dan Geofisika ke-76</h5>
-                  <p className="text-sm text-gray-400">20 Jul 2023</p>
-                </div>
-              </Card>
-            ))}
+          {eventData.map((event, index) => (
+            <Card key={index} hasImage={true} className="p-0 w-72 shrink-0">
+              <Image src={event.image} alt={event.title} className="rounded-xl h-64" />
+              <div className="p-4">
+                <h5 className="font-semibold">{event.title}</h5>
+                <p className="text-sm text-gray-400">{event.date}</p>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
 
